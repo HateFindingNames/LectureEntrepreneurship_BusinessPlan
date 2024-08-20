@@ -1,0 +1,9 @@
+/buildfiles
+/__MAIN_FILE.fls
+/__MAIN_FILE.synctex.gz
+*.blg
+/svg-inkscape
+~*
+*.pdf_tex
+*svg-tex.pdf
+logo-hsrm.jpg

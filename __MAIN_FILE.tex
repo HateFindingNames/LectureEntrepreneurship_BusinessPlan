@@ -1,0 +1,47 @@
+\documentclass[paper=a4,11pt,titlepage,twoside=false,headings=normal,numbers=noenddot,captions=tableabove,listof=totoc,index=totoc,bibliography=totoc]{scrreprt}
+%-----------------------------------------------------------------
+\usepackage{etoolbox}
+\input{pre-variables}
+\input{pre-packages}
+\input{pre-page-layout}
+\input{pre-header-footer-text-report}
+\DeclareNameAlias{author}{family-given}
+\DeclareNameAlias{editor}{family-given}
+\DeclareNameAlias{translator}{family-given}
+\addbibresource{lib/literature.bib}
+%------DEBUGGING--------------------------------------------------
+% \usepackage[showframe]{geometry} % comment for live version
+% \usepackage{layout}
+% \usepackage{showframe}
+\begin{document}
+%-----------------------------------------------------------------
+\input{chapters/0_top}
+\clearpage
+\pagenumbering{arabic}
+\tableofcontents
+\input{chapters/1_chap}
+\input{chapters/2_chap}
+\input{chapters/3_chap}
+% \printnomenclature[5cm]
+\include{chapters/4_chap}
+\include{chapters/5_chap}
+\include{chapters/6_chap}
+\include{chapters/7_chap}
+\include{chapters/8_chap}
+%-----------------------------------------------------------------
+\newpage
+% \setcounter{page}{5}
+% \pagenumbering{roman}
+% \appendix
+% \pagenumbering{Roman}
+% \input{chapters/appendixA}
+% \input{chapters/appendixB}
+% \clearpage
+% \pagenumbering{Roman}
+\listoffigures
+\listoftables
+% \lstlistoflistings
+\printbibliography%
+% \printbibliography[keyword={software}, title={Software}]%
+%=================================================================
+\end{document}
