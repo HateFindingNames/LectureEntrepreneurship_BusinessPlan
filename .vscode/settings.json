@@ -1,0 +1,188 @@
+{
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk 🔃 no GS",
+            "tools": [
+                // "latexmk",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "biber only",
+            "tools": [
+                "biber"
+            ]
+        },
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk",
+                "latexmk",
+                "ghostscript"
+            ]
+        },
+        {
+            "name": "Special MK",
+            "tools": [
+                "latexmk-for-pstricks",
+            ]
+        },
+        {
+            "name": "Ghostscript for Special MK",
+            "tools": [
+                "ghostscript-for-pstricks"
+            ]
+        },
+        {
+            "name": "lualatex",
+            "tools": [
+                "lualatexmk",
+                "ghostscript"
+            ]
+        },
+        {
+            "name": "latexmk ➞ biber ➞ latexmk × 2",
+            "tools": [
+                "latexmk",
+                "biber",
+                "makeindex",
+                "latexmk",
+                "latexmk",
+                "ghostscript"
+            ]
+        },
+        {
+            "name": "texify",
+            "tools": [
+              "texify"
+            ]
+        },
+        {
+            "name": "compress pdf",
+            "tools": [
+                "ghostscript"
+            ]
+        },
+        {
+            "name": "latexmk debug mode",
+            "tools": [
+                "latexmk-debugmode"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "ghostscript",
+            "command": "gswin64c.exe",
+            "args": [
+                "-sDEVICE=pdfwrite",
+                "-dCompatibilityLevel=1.5",
+                "-dPDFSETTINGS=/printer",
+                "-dQUIET",
+                "-o%DOCFILE%_compressed.pdf",
+                "%OUTDIR%/%DOCFILE%.pdf"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk-here",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "-auxdir=%OUTDIR%/buildfiles",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk-debugmode",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-h",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "-auxdir=%OUTDIR%/buildfiles",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "makeindex",
+            "command": "makeindex",
+            "args": [
+                "%DOCFILE%.nlo",
+                "-s",
+                "nomentbl.ist",
+                "-o",
+                "%DOCFILE%.nls",
+                "%DOCFILE%.nlo"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "-auxdir=%OUTDIR%/buildfiles",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%/buildfiles"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+    ]
+}
