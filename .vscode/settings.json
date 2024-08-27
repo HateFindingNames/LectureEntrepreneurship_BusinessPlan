@@ -1,5 +1,4 @@
 {
-    "latex-workshop.chktex.enabled": true,
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk 🔃 no GS",
@@ -23,25 +22,6 @@
             ]
         },
         {
-            "name": "Special MK",
-            "tools": [
-                "latexmk-for-pstricks",
-            ]
-        },
-        {
-            "name": "Ghostscript for Special MK",
-            "tools": [
-                "ghostscript-for-pstricks"
-            ]
-        },
-        {
-            "name": "lualatex",
-            "tools": [
-                "lualatexmk",
-                "ghostscript"
-            ]
-        },
-        {
             "name": "latexmk ➞ biber ➞ latexmk × 2",
             "tools": [
                 "latexmk",
@@ -50,12 +30,6 @@
                 "latexmk",
                 "latexmk",
                 "ghostscript"
-            ]
-        },
-        {
-            "name": "texify",
-            "tools": [
-              "texify"
             ]
         },
         {
@@ -82,20 +56,6 @@
                 "-dQUIET",
                 "-o%DOCFILE%_compressed.pdf",
                 "%OUTDIR%/%DOCFILE%.pdf"
-            ],
-            "env": {}
-        },
-        {
-            "name": "latexmk-here",
-            "command": "latexmk",
-            "args": [
-                "-shell-escape",
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "-outdir=%OUTDIR%",
-                "%DOC%"
             ],
             "env": {}
         },
@@ -148,21 +108,6 @@
             "args": [
                 "%DOCFILE%"
             ]
-        },
-        {
-            "name": "lualatexmk",
-            "command": "latexmk",
-            "args": [
-                "-shell-escape",
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-lualatex",
-                "-outdir=%OUTDIR%",
-                "-auxdir=%OUTDIR%/buildfiles",
-                "%DOC%"
-            ],
-            "env": {}
         },
         {
             "name": "pdflatex",
