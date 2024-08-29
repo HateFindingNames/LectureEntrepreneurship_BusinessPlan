@@ -48,8 +48,8 @@ govdf = pd.DataFrame.from_dict(gov, dtype="float")
 # print(gov)
 
 xlabel = "Jahr"
-ylabel = "\% BIP"
-title = "Bruttoanlageninvestitionen (BAI) in Prozent des BIP"
+ylabel = "BAI in Mrd. €"
+title = "Gewerbliche (BSN) und staatliche (GOV) Bruttoanlageninvestitionen (BAI) nach EU-Land"
 
 fig, ax = plt.subplots(1,1,figsize=(10, 5))
 
@@ -62,17 +62,32 @@ countries = [
     "AT"
 ]
 
+# absolute BIPs 2012 to 2023
+bips = {
+    "DE": [2800.4, 2867.3, 2985.2, 3085.7, 3196.1, 3331.1, 3431.1, 3534.9, 3449.6, 3673.8, 3962.2, 4194.7], # DE; https://de.statista.com/statistik/daten/studie/14397/umfrage/deutschland-bruttoinlandsprodukt-bip/
+    "ES": [1325.6, 1355.6, 1372.2, 1196.3, 1233.2, 1312.8, 1422.4, 1394.5, 1277.1, 1446.6, 1418.9, 1581.2], # ES; https://de.statista.com/statistik/daten/studie/19358/umfrage/bruttoinlandsprodukt-in-spanien/
+    "FR": [2685.4, 2811.9, 2856.7, 2439.4, 2472.3, 2594.2, 2792.2, 2729.2, 2645.3, 2958.3, 2780.4, 3031.8], # FR; https://de.statista.com/statistik/daten/studie/14396/umfrage/bruttoinlandsprodukt-in-frankreich/
+    "IT": [2088.28,2141.95,2162.57,1836.82,1876.55,1961.10,2092.88,2011.53,1895.94,2156.31,2068.60,2255.50], # IT; https://de.statista.com/statistik/daten/studie/14402/umfrage/bruttoinlandsprodukt-in-italien/
+    "AT": [318.7, 323.9, 333.1, 344.3, 357.6, 369.4, 385.3, 397.2, 381, 406.1, 447.7, np.nan] # AT; https://de.statista.com/statistik/daten/studie/14390/umfrage/bruttoinlandsprodukt-in-oesterreich/
+}
+bipdf = pd.Series(bips)
+
+for i, country in enumerate(countries):
+    # print(np.multiply(bsndf[country],bips[country])*0.01)
+    ax.plot(heads[1:], bsndf[country]*bips[country]*0.01, lw=1, label=f"{country} (BSN)", linestyle="--")
 for country in countries:
-    ax.plot(heads[1:], bsndf[country], lw=.75, label=f"{country} (BSN)", linestyle="--")
-for country in countries:
-    ax.plot(heads[1:], govdf[country], lw=1, label=f"{country} (GOV)")
+    ax.plot(heads[1:], govdf[country]*bips[country]*0.01, lw=1, label=f"{country} (GOV)")
+
+# ax2 = plt.twinx()
+# for i, country in enumerate(countries):
+#     ax2.plot(heads[1:], bips[country], lw=.75)
 
 ax.legend(loc="upper left")
-# ax.set_xlabel(xlabel)
 ax.set_ylabel(ylabel)
 ax.set_title(title)
 ax.tick_params(axis='x', labelrotation=45)
 # ax.set_ylim(ymin=0.05, ymax=.4)
+ax.grid(axis="both", alpha=.5)
 plt.tight_layout()
 # plt.show()
 plt.savefig("stat/InvPerBIP2024/InvPerBIP2024.svg")
