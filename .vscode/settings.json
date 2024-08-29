@@ -129,5 +129,7 @@
             ],
             "env": {}
         },
-    ]
+    ],
+    "ltex.language": "de-DE",
+    "editor.formatOnSave": true
 }
