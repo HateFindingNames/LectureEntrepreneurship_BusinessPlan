@@ -15,7 +15,8 @@ xlabel = ""
 ylabel = "VCF in Mrd. USD"
 title = "Globale Venture Capital Finanzierung (VCF) in CCUS Start-Ups in Milliarden USD"
 ax.bar(invdf["Periode"], invdf["Inv"])
-ax.tick_params(axis='x', labelrotation=45)
+ax.set_axisbelow(True)
+ax.tick_params(axis='x', labelrotation=30)
 ax.set_xlabel(xlabel)
 ax.set_ylabel(ylabel)
 ax.set_title(title)

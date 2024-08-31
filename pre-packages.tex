@@ -52,6 +52,7 @@
 % \usepackage{tabulary} % Tabular with variable width columns balanced https://www.ctan.org/pkg/tabulary
 % \usepackage{textcomp} % LaTeX support for the Text Companion fonts https://www.ctan.org/pkg/textcomp
 \usepackage{tocbasic} % Management of tables/lists of contents (and the like) https://www.ctan.org/pkg/tocbasic
+\usepackage[style=numeric, citestyle=numeric, backend=biber, date=short]{biblatex} % Sophisticated Bibliographies in LaTeX https://www.ctan.org/pkg/biblatex
 \usepackage{xurl} % Allow URL breaks at any alphanumerical character https://www.ctan.org/pkg/xurl
 % \usepackage{wrapfig} % Produces figures which text can flow around https://www.ctan.org/pkg/wrapfig
 % \usepackage{xr-hyper} % Inter-document hyper-references https://www.ctan.org/pkg/xr-hyper
@@ -66,11 +67,10 @@
 }
 \usepackage[ngerman]{cleveref} % Intelligent cross-referencing https://www.ctan.org/pkg/cleveref
 % \usepackage[nonumberlist, acronym, toc, section]{glossaries} % Create glossaries and lists of acronyms https://www.ctan.org/pkg/glossaries
-\usepackage[style=numeric, citestyle=numeric, backend=biber, date=short]{biblatex} % Sophisticated Bibliographies in LaTeX https://www.ctan.org/pkg/biblatex
 \usepackage[useregional]{datetime2} % Formats for dates, times and time zones https://www.ctan.org/pkg/datetime2
 % \usepackage{isotope} % A package for typesetting isotopes https://www.ctan.org/pkg/isotope
 % \usepackage{framed} % Framed or shaded regions that can break across pages https://www.ctan.org/pkg/framed
-\usepackage[inkscapearea=page]{svg} % Include and extract SVG pictures in LaTeX documents https://ctan.org/pkg/svg
+\usepackage[inkscapearea=page, inkscapepath=svgsubdir]{svg} % Include and extract SVG pictures in LaTeX documents https://ctan.org/pkg/svg
 % \usepackage{adjustbox} % Graphics package-alike macros for “general” boxes https://www.ctan.org/pkg/adjustbox
 \usepackage[numbered]{bookmark} % A new bookmark (outline) organization for hyperref https://www.ctan.org/pkg/bookmark
 % ---------- Make floats stay within the chapter/section/subsection they got placed ------------------

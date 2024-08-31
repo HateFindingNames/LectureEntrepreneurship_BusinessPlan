@@ -13,7 +13,7 @@ fig, ax = plt.subplots(1,1,figsize=(10,5))
 
 xlabel = ""
 ylabel = "EUR pro Tonne"
-title = "Gemittelte Preise der EU-ETS am Spotmlarkt von 2010 bis 2024 in EUR pro Tonne CO2"
+title = "Gemittelte Preise der EU-ETS am Spotmarkt von 2010 bis 2024 in EUR pro Tonne CO2"
 ax.plot(invdf["Jahr"], invdf["Preis"])
 ax.tick_params(axis='x', labelrotation=45)
 ax.set_xlabel(xlabel)

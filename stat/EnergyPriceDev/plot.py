@@ -59,7 +59,7 @@ with open(os.path.dirname(__file__)+gfile, "r") as g:
     
 gdf = pd.DataFrame.from_dict(ctry, dtype="float")
 
-xlabel = "Zeitperioden"
+xlabel = ""
 ylabel = "Euro pro kWh"
 ylabel2 = "Euro pro GJ"
 title = "Industriepreisentwicklung Elektrizität und Gas ex Steuer\nwichtiger Länder in der EU"
@@ -78,6 +78,8 @@ ax2 = ax.twinx()
 for country in countries:
     ax.plot(heads[1:], edf[country], "-o", markersize=0, lw=.75, label=country, linestyle="--")
     ax2.plot(heads[1:], gdf[country], "-o", markersize=0, lw=.75, label=country)
+for label in ax.xaxis.get_ticklabels()[::2]:
+    label.set_visible(False)
 ax.legend(title="Elektrizität", loc="upper left")
 ax2.legend(title="Gas", loc="lower left")
 
@@ -85,7 +87,7 @@ ax.set_xlabel(xlabel)
 ax.set_ylabel(ylabel)
 ax2.set_ylabel(ylabel2)
 ax.set_title(title)
-ax.tick_params(axis='x', labelrotation=45)
+ax.tick_params(axis='x', labelrotation=30)
 ax.set_ylim(ymin=0.05, ymax=.4)
 ax2.set_ylim(ymin=0, ymax=35)
 ax.grid(axis="both", alpha=.5)
